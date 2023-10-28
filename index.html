@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="botao">clica em mim</button>
+
+    <script>
+
+
+            var botao = document.getElementById('botao');
+            botao.addEventListener('click', () => {
+                FormarAranha();
+            })
+
+            
+            function FormarAranha(){
+                
+                let aranha = [
+                    "             *                * ",
+                    "    *      *       ( __ )      *      *",
+                    "     *      *     | Ò  Ó |   *       *   ",
+                    "       *  *  *     |    |   *  *   * ",
+                "    *. * .          |  |             . * .*",
+                   "        .* *  *   |  .. |   *  *  *.",
+                   "          *    | |      | |  *    ",
+                   "        *    | |         | |    *",
+                   "       *      | |          | |     *",
+                   "        *     | |   ..   | |     *",
+                   "         *         ----         *"
+
+                ]
+                let div = document.createElement('div');
+                document.body.appendChild(div);
+
+                
+                for (i =0; i < aranha.length; i++) {
+                    let linha = document.createElement('pre');
+                    linha.textContent = aranha[i] // Replace backslashes with double backslashes
+                    div.appendChild(linha);
+                }
+            }
+  
+  
+  
+  
+            /*               *           *
+                           *                *
+                    *       *    ( __ )    *       *
+                       *      *  /    \  *       *   
+                         *  *  * |    | *  *   *
+                *. *              \  /             * .*
+                    .*  *  *    /  .. \     *  *  *.
+                            *  / /   \ \   *                                    
+                          *    | |   | |    *
+                         *     | \   / |     *
+                          *     \ \./ /     *
+                            *     ----    *
+             */              
+    </script>
+</body>
+</html>

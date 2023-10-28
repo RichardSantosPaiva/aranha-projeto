@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .asterisco-azul {
+            color:blue;
+        }
+        .barra-vermelha {
+            color: red;
+        }
+
+       body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+       }
+
+       div {
+        width: 100%;
+        text-align: center;
+        border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clique no botão para criar a aranha</h1>
+    <button id="botao">Formar Aranha</button>
+
+    <script>
+        var botao = document.getElementById('botao');
+        botao.addEventListener('click', () => {
+            FormarAranha();
+        });
+
+        function FormarAranha() {
+            let partesAranha = [
+                    "      . *                 *. ",
+                    "       .*       *.    .( __ ).    .*         *.",
+                    "        * .         .*  | Ò  Ó |  *.       .  *   ",
+                    "      * - * - *     |    |   * - * -  * ",
+                "      *.                  |  |                 .*",
+                   "       *.* - * - *    |  .. |     * - * - *.*",
+                   "         .*    | |      | |  *    ",
+                   "       .*    | |         | |    *.",
+                   "      *.      | |          | |     .*",
+                   "       *.     | |   ..   | |     .*",
+                   "        *    ..----..     *"
+
+                ]
+            // a aranha está repartida em 12 partes
+
+            let div = document.createElement('div');
+            document.body.appendChild(div);
+
+            for( let contador=0; contador < partesAranha.length; contador++ ){
+                
+                setTimeout(() => {
+                    let linha = document.createElement('pre');
+                    linha.innerHTML = partesAranha[contador]
+                    .replace(/\|/g, '<span class="barra-vermelha">|</span>')
+                    .replace(/\*/g, '<span class="asterisco-azul">*</span>')
+                    .replace(/\(/g, '<span class="asterisco-azul">(</span>')
+                    .replace(/\)/g, '<span class="asterisco-azul">)</span>')
+                    .replace(/\./g, '<span class="asterisco-azul">.</span>')
+                    .replace(/\_/g, '<span class="barra-vermelha">_</span>');
+
+
+
+                    
+                    div.appendChild(linha);
+                }, contador * 400); // Delay each line by i * 8 milesegundos
+            }
+        }
+
+
+        /*
+        
+        o que é ?
+
+
+        1. contador.innerHTML: Esta é uma atribuição que define o conteúdo HTML dentro de um elemento HTML chamado line.
+
+        2 partesAranha[contador]: acessa o i-ésimo elemento na aranhamatriz, que representa o atual
+
+        3 .replace(/\|/g, '<span class="barra-vermelha">|</span>')``replace`função, que realiza uma operação de busca e
+         substituição dentro da partesAranha[contador]string `aranha:
+
+         º /\|/g: um padrão de expressão regular que procura o caractere de barra vertical ( |). O gsinalizador é usado para uma pesquisa global, portanto substituirá todas as ocorrências de |na string.
+
+         º '<span class="">|</sbarra-vermelhapan>' <span class="barra-vermelha">|personagem com um spanelemento.
+
+        4 O spanelemento tem o atributo de classe definido como "barra vermelha",
+
+        Em resumo, esta linha de código pega a linha atual do formato de aranha, procura barras verticais dentro dessa linha e as substitui por um spanelemento que possui a classe para aplicar a cor vermelha.preelemento.
+        
+        Certamente, aqui está uma explicação melhorada em um formato mais conciso e estruturado: 1. `line.innerHTML`: Este código define o 
+        conteúdo HTML dentro de um elemento HTML chamado `line`. 2. `aranha[i]`: acessa a linha atual do formato de aranha armazenada no
+         array `aranha` no índice `i`. 3. `.replace(/\|/g, '<span class="red-bar">|</span>')`: Esta parte é uma chamada de método para 
+         `replace`. Ele procura o caractere de barra vertical (`|`) na linha atual e substitui todas as ocorrências por um elemento `span`. 
+         4. `/\|/g`: É um padrão de expressão regular usado para uma pesquisa global, o que significa que encontra e substitui todas as
+          ocorrências de `
+        */
+       
+    </script>
+</body>
+</html>
